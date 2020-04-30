@@ -1,0 +1,12 @@
+
+Checking the variables of 4 tables:
+
+$ mysql -u awkologist -p world_x -e 'select * from city limit 5;'
+$ mysql -u awkologist -p world_x -e 'select * from country limit 5;'
+$ mysql -u awkologist -p world_x -e 'select * from countryinfo limit 1;'
+$ mysql -u awkologist -p world_x -e 'select * from countrylanguage limit 5;'
+
+
+Building the appropriate table from the two tables (country and countrylanguage):
+
+$ mysql -u awkologist -p world_x -e 'select a1.Name, a2.Percentage, a1.Capital from (country a1 inner join countrylanguage a2 on a1.Code = a2.CountryCode and a2.Language = "English") where  a2.Percentage > 50';

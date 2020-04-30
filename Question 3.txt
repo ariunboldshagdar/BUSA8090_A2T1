@@ -1,0 +1,19 @@
+
+Looking for database from internet:
+https://coronavirus.jhu.edu/data/mortality.
+
+And created database in MS.Excel   
+https://github.com/ariunboldshagdar/BUSA8090_A2T1/blob/master/covid19.xlsx 
+
+Need to import
+
+> library(readxl)
+> covid19 <- read_excel("C:/Users/ariunbold/Desktop/covid19.xlsx")
+> View(covid19)
+
+
+Activiate the ggplot2 command from Library in R
+> library(ggplot2)
+
+Build the graph: 
+> ggplot(covid19, aes(x=reorder(Country,+Deaths_100k), y=Deaths_100k))+geom_bar(stat="identity", fill="blue")+coord_flip()+ ggtitle(label="Covid-19 deaths per 100k population\nGermany and Australia and selected countries", subtitle = "Johns Hopkins - Coronovirus resource center ")+ labs(x = " ", y = "Death rate")

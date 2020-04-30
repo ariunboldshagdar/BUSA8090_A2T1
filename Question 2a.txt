@@ -1,0 +1,35 @@
+
+Download file from https://dev.mysql.com/doc/index-other.html using the curl command. 
+
+$ curl https://downloads.mysql.com/docs/world_x-db.zip >world_x-db.zip
+
+
+Need to install unzip and unzip the folder: 
+
+$ sudo apt-get install unzip
+$ unzip world_x-db.zip 
+$ cd world_x-db 
+$ ls
+
+IN MYSQL: Create the new database and set up 
+
+mysql> create database world_x;
+mysql> GRANT ALL ON world_x.* TO awkologist@localhost IDENTIFIED BY "awkology";
+mysql> show databases;
+mysql> use world_x;
+mysql> show tables;
+
+
+IN MY REMOTE SHELL: Need to import database from remote shell
+
+$ mysql -u awkologist -p world_x < world_x.sql
+$ mysql -u awkologist -p world_x -e 'show tables;'
+
++-------------------+
+| Tables_in_world_x |
++-------------------+
+| city              |
+| country           |
+| countryinfo       |
+| countrylanguage   |
++-------------------+

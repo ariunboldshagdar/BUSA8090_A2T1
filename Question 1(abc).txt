@@ -1,0 +1,14 @@
+
+Question 1:
+
+a)
+
+$ awk -F'\t' '{if ($2<1000) print $1, $2}' expression.tab
+
+b)
+
+$ awk -F'\t' '$2~/ase/{print}' annotation.tab
+
+c)
+
+$ awk -F'\t' '((($3~/Purine/)+($3~/Pyrimidine/))*($3~/biosynthesis/))' annotation.tab
